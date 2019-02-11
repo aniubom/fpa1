@@ -1,18 +1,16 @@
 # Question 1
 
-def revere_general(L):
-    result = []
-    L.reverse()
-    for i in L:
-        if type(i) == list:
-            result.append(revere_general(i))
-        else:
-            result.append(i)
-    return result
+(define (sum-up-numbers-simple lst)
+  (if (null? lst)
+    0
+    (if (number? (car lst))
+      (+ (car lst) (sum-up-numbers-simple (cdr lst)))
+      (sum-up-numbers-simple (cdr lst))
+    )
+  )
+)
+(sum-up-numbers-simple '(a 100 b (200) c 300 d))
 
-# L = ['a',['b','c'],[['d','e'],'f'],'g']
-L = [1,[2,3],[4,['a',['b',['c','d']]]]]
-print(revere_general(L))
 
 
 # Question 2
@@ -41,3 +39,6 @@ def sum_up_numbers_general(L):
 
 L = ['a',100,[['b',[[200],'c']],300,'d']]
 print(sum_up_numbers_general(L))
+
+
+
