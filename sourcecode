@@ -44,4 +44,44 @@ L = ['a',100,[['b',[[200],'c']],300,'d']]
 print(sum_up_numbers_general(L))
 
 
+# Question # 4
+
+def min_above_min(L1,L2):
+    numbers_l2 = []
+    for i in L2:
+        if type(i) == int or type(i) == float:
+            numbers_l2.append(i)
+            pass
+    try:
+        min_l2 = min(numbers_l2)
+    except:
+        min_l2 = ''
+
+    if min_l2 != '':
+        numbers_l1 = []
+        for i in L1:
+            if type(i) == int or type(i) == float:
+                if i > min_l2:
+                    numbers_l1.append(i)
+        try:
+            min_l1 = min(numbers_l1)
+            result = min_l1
+        except:
+            result = False
+    else:
+        numbers_l1 = []
+        for i in L1:
+            if type(i) == int or type(i) == float:
+                numbers_l1.append(i)
+        try:
+            min_l1 = min(numbers_l1)
+            result = min_l1
+        except:
+            result = False
+    return result
+
+L1 = ['a',300,'b',100,'c',200,'d']
+L2 = ['a',200,'b',300,'c',100,'d']
+print(min_above_min(L1,L2))
+
 
