@@ -1,0 +1,15 @@
+# Question  1
+
+def revere_general(L):
+    result = []
+    L.reverse()
+    for i in L:
+        if type(i) == list:
+            result.append(revere_general(i))
+        else:
+            result.append(i)
+    return result
+
+# L = ['a',['b','c'],[['d','e'],'f'],'g']
+L = [1,[2,3],[4,['a',['b',['c','d']]]]]
+print(revere_general(L))
