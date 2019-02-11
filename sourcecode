@@ -1,4 +1,4 @@
-# Question  1
+# Question 1
 
 def revere_general(L):
     result = []
@@ -13,3 +13,17 @@ def revere_general(L):
 # L = ['a',['b','c'],[['d','e'],'f'],'g']
 L = [1,[2,3],[4,['a',['b',['c','d']]]]]
 print(revere_general(L))
+
+
+# Question 2
+
+def sum_up_numbers_simple(L):
+    result = 0
+    for i in L:
+        if type(i) == int or type(i) == float:
+            result += i
+    return result
+
+# L = ['a','b',1,2,'c',3,'d']
+L = ['a',100,'b',[200],'c',300,'d']
+print(sum_up_numbers_simple(L))
