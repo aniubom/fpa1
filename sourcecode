@@ -27,3 +27,17 @@ def sum_up_numbers_simple(L):
 # L = ['a','b',1,2,'c',3,'d']
 L = ['a',100,'b',[200],'c',300,'d']
 print(sum_up_numbers_simple(L))
+
+# Question 3
+
+def sum_up_numbers_general(L):
+    result = 0
+    for i in L:
+        if type(i) == int or type(i) == float:
+            result += i
+        elif type(i) == list:
+            result += sum_up_numbers_general(i)
+    return result
+
+L = ['a',100,[['b',[[200],'c']],300,'d']]
+print(sum_up_numbers_general(L))
