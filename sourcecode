@@ -15,16 +15,19 @@
 
 # Question 2
 
-def sum_up_numbers_simple(L):
-    result = 0
-    for i in L:
-        if type(i) == int or type(i) == float:
-            result += i
-    return result
-
-# L = ['a','b',1,2,'c',3,'d']
-L = ['a',100,'b',[200],'c',300,'d']
-print(sum_up_numbers_simple(L))
+(define (sum-up-numbers-general lst)
+  (if (null? lst)
+    0
+    (if (list? (car lst)) 
+      (+ (sum-up-numbers-general (car lst)) (sum-up-numbers-general (cdr lst)))
+      (if (number? (car lst))
+        (+ (car lst) (sum-up-numbers-general (cdr lst)))
+        (sum-up-numbers-general (cdr lst))
+      )
+    )
+  )
+)
+(sum-up-numbers-general '(100 (200 (200 1)))
 
 # Question 3
 
